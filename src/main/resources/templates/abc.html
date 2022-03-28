@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+
+    .full {
+        width: 100%;
+        height: 100%;
+    }
+
+    .market_outer {
+        width: 100%;
+        height: 500px;
+    }
+
+    /*상점 페이지 왼쪽 시작*/
+    .market_left {
+        width: 65%;
+        height: 100%;
+    }
+
+    .market_left_box {
+        width: 80%;
+        height: 100%;
+    }
+
+    .random_title {
+        width: 100%;
+        height: 10%;
+    }
+
+    .random_txt {
+        font-size: 25px;
+        font-weight: 500;
+    }
+
+    .random_box {
+        background-color: gold;
+        height: 90%;
+        width: 100%;
+    }
+
+    .random_img {
+        font-size: 200px;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .timer_text {
+        font-size: 30px;
+        border: none;
+        background: transparent;
+    }
+
+    .mine_box {
+        height: 30%;
+        width: 100%;
+    }
+
+    .mine_btn_box {
+        width: 40%;
+    }
+
+    .mine_btn {
+        font-size: 30px;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    /*상점 페이지 왼쪽 끝*/
+
+    /*상점 페이지 오른쪽 시작*/
+    .market_right {
+        width: 35%;
+        height: 100%;
+    }
+
+    .weapon_title {
+        margin-left: 20px;
+    }
+
+    .weapon_outer {
+        height: 100%;
+        width: 70%;
+    }
+
+    .weapon_name {
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .weapon_percent {
+        font-size: 13px;
+        list-style: none;
+        margin-bottom: 15px;
+    }
+
+    /*상점 페이지 오른쪽 끝*/
+</style>
+</head>
+
+<body>
+
+    <div class="market_outer d-flex justify-content-around align-items-center">
+        <div class="market_left d-flex justify-content-center">
+            <!--랜덤박스 시작-->
+            <div class="market_left_box d-flex flex-column justify-content-center ">
+                <div class="random_title d-flex justify-content-center align-items-center ">
+                    <div class="random_txt"> 무기(뽑아보쉴???)1000코인</div>
+                </div>
+                <div class="random_box  d-flex justify-content-center align-items-center">
+                    <div id="random_img" class="random_img d-flex justify-content-center align-items-center">❓</div>
+                    <div class="full d-flex flex-column align-items-center">
+                        <input type="text" id="timer-text" class="timer_text mt-3 text-center" value="무료 뽑기!!"
+                            readonly></input>
+                        <p id="present_img" class="random_img text-center">🎁</p>
+                    </div>
+                </div>
+            </div>
+            <!--랜덤박스 끝-->
+        </div>
+        <div class="market_right">
+            <!--무기목록 시작-->
+            <h1 class="weapon_title">무기 목록</h1>
+
+            <ul>
+                <li class="weapon_name">꽝</li>
+                <li class="weapon_percent">- 확률: 50%</li>
+                <li class="weapon_name">무기1: html</li>
+                <li class="weapon_percent">-확률:25%</li>
+                <li class="weapon_name">무기2: java</li>
+                <li class="weapon_percent">-확률:15%</li>
+                <li class="weapon_name">무기3: JSP</li>
+                <li class="weapon_percent">-확률:8%</li>
+                <li class="weapon_name">무기4: Spring Boot</li>
+                <li class="weapon_percent">-확률:2%</li>
+
+            </ul>
+            <!--무기목록 끝-->
+        </div>
+
+        <script>
+            $("#random_img").click(() => {
+                test();
+            });
+            function test() {
+                let random = Math.random();
+                console.log(random); // 그냥 랜덤 메서드 돌릴 때 어떤 수가 나오는 지 확인
+
+                if (random >= 0.5 && random < 1.0 == true) {
+                    alert("꽝");
+                } else if (random >= 0.25 && random < 0.5 == true) {
+                    alert("html");
+                } else if (random >= 0.1 && random < 0.25 == true) {
+                    alert("java");
+                } else if (random >= 0.02 && random < 0.1 == true) {
+                    alert("JSP");
+                } else if (random >= 0 && random < 0.02 == true) {
+                    alert("SpringBoot");
+                }
+
+            }
+
+            let isTimer = false;
+            $("#present_img").click(() => {
+                if (isTimer == false) {
+                    isTimer = true;
+                    console.log("start : " + isTimer);
+                    test();
+                    timer();
+                }
+            });
+
+            let timer = () => {
+                let time = 180;
+                let min = 0;
+                let sec = 0;
+                let startTimer = setInterval(() => {
+                    min = parseInt(time / 60);
+                    sec = time % 60;
+                    console.log("middle : " + isTimer);
+
+                    $("#timer-text").val("무료 뽑기 까지 " + min + "분 " + sec + "초");
+                    time--
+                    if (time < 0) {
+                        clearInterval(startTimer);
+                        console.log("end : " + isTimer);
+                        $("#timer-text").val("무료 뽑기!!");
+                        isTimer = false;
+                    }
+                }, 1000);
+            }
+
+
+        </script>
+
+
+
+</body>
+
+</html>
