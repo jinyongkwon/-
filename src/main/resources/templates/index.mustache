@@ -14,32 +14,68 @@
             padding: 0px;
         }
 
+        @font-face {
+            font-family: 'neon';
+            src: url('font/HSGyeoulNoonkott2.0-Regular.ttf') format('truetype');
+        }
+
+        .full {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box_bg {
+            background-image: url("/image/battleBG.png");
+            background-size: 100%;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .box_top {
+            height: 70%;
+        }
+
+        .box_top_top {
+            height: 30%;
+        }
+
         .hpborder {
-            border: 3px solid purple;
+            border: 3px solid white;
             width: 45%;
-        }
-
-        .hpbar-user {
-            width: 100%;
-            height: 100%;
-        }
-
-        .hpbar-monster {
-            width: 100%;
-            height: 100%;
         }
 
         .vsbar {
             width: 10%;
         }
 
+        .text-font {
+            font-family: 'neon';
+            font-size: 30px;
+            color: white;
+            font-weight: 900;
+
+        }
+
         .monster-text {
             text-align: right;
         }
 
+        .box_top_bottom {
+            height: 70%;
+        }
+
+        .img-top-box {
+            height: 55%;
+        }
+
+        .img-bottom-box {
+            height: 45%;
+        }
+
         .img-size {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
+            max-width: 100%;
         }
 
         .img-user-position {
@@ -49,16 +85,13 @@
 
         .img-monster-position {
             position: relative;
-            right: 70px;
-        }
-
-        .margin-top {
-            margin-top: 125px;
+            right: 43%;
+            bottom: 100%;
         }
 
         .box-bottm {
             width: 100%;
-            height: 200px;
+            height: 30%;
         }
 
         .box-text {
@@ -70,16 +103,25 @@
             width: 30%;
             height: 80%;
             margin: 5px;
+            background: transparent;
         }
 
-        .fullsize {
-            width: 100%;
-            height: 100%;
+        .img-attack {
+            position: absolute;
+            right: 48%;
+            top: 32%;
+        }
+
+        .img-monster-attack {
+            position: absolute;
+            right: 15%;
+            top: 0%;
         }
 
         textarea {
             border: none;
             resize: none;
+            background: transparent;
         }
 
         input {
@@ -91,79 +133,90 @@
 </head>
 
 <body>
+
     <!-- 전체화면 시작 -->
     <div class="container-fluid">
-        <!-- top 시작 -->
-        <div class="container-fluid mt-3">
-            <input type="hidden" value="3215" id="user-power">
-            <input type="hidden" value="5184" id="monster-power">
-            <input type="hidden" value="10000" id="user-starthp">
-            <input type="hidden" value="10000" id="monster-starthp">
-            <!-- hp바 시작 -->
-            <div class="d-flex mb-3">
-                <div class="hpborder" id="user-box">
-                    <div class="p-2 bg-danger hpbar-user" id="user-hpbar">
+        <div class="box_bg" id="bg">
+            <!-- top 시작 -->
+            <div class="container-fluid box_top">
+                <input type="hidden" value="3215" id="user-power">
+                <input type="hidden" value="5184" id="monster-power">
+                <input type="hidden" value="10000" id="user-starthp">
+                <input type="hidden" value="10000" id="monster-starthp">
+                <!-- hp바 시작 -->
+                <div class="box_top_top pt-3">
+                    <div class="d-flex mb-3">
+                        <div class="hpborder" id="user-box">
+                            <div class="p-2 bg-danger full" id="user-hpbar">
+                            </div>
+                        </div>
+                        <div class="p-2 d-flex flex-wrap align-content-center justify-content-center vsbar">
+                            <div class="text-font">VS</div>
+                        </div>
+                        <div class="hpborder d-flex justify-content-end">
+                            <div class="p-2  bg-danger full" id="monster-hpbar">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- hp바 끝 -->
+                    <!-- 캐릭터 설명 시작 -->
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="mb-3 d-flex flex-column">
+                            <div class="mb-3">
+                                <input type="text" class="text-font" value="HP : 10000" id="user-texthp" readonly>
+                                <input type="text" class="text-font" value="권진용" id="user-name" readonly>
+                            </div>
+                        </div>
+                        <div class="mb-3 d-flex flex-column">
+                            <input type="text" value="HP : 10000" class="monster-text text-font" id="monster-texthp"
+                                readonly>
+                            <input type="text" class="monster-text text-font" id="monster-name" value="최주호" readonly>
+                            <input type="text" class="monster-text text-font" value="가나다라마바사" readonly>
+                        </div>
                     </div>
                 </div>
-                <div class="p-2 d-flex flex-wrap align-content-center justify-content-center vsbar">
-                    <div>VS</div>
-                </div>
-                <div class="hpborder d-flex justify-content-end">
-                    <div class="p-2  bg-danger hpbar-monster" id="monster-hpbar">
+                <!-- 캐릭터 설명 끝 -->
+                <!-- 캐릭터 이미지 시작 -->
+                <div class="box_top_bottom">
+                    <div class="img-top-box"></div>
+                    <div class="d-flex justify-content-between img-bottom-box">
+                        <div class="img-user-position" id="user-image">
+                            <img src="/image/user.png" class="img-size" hidden>
+                        </div>
+                        <div class="img-monster-position ">
+                            <img src="/image/monster.png" class="img-size" id="monster-image">
+                        </div>
                     </div>
                 </div>
+                <!-- 캐릭터 이미지 끝 -->
             </div>
-            <!-- hp바 끝 -->
-            <!-- 캐릭터 설명 시작 -->
-            <div class="d-flex justify-content-between mb-3">
-                <div class="mb-3 d-flex flex-column">
-                    <div class="mb-3">
-                        <input type="text" value="HP : 10000" id="user-texthp" readonly>
-                        <input type="text" value="권진용" id="user-name" readonly>
-                    </div>
-                </div>
-                <div class="mb-3 d-flex flex-column">
-                    <input type="text" value="HP : 10000" class="monster-text" id="monster-texthp" readonly>
-                    <input type="text" class="monster-text" id="monster-name" value="최주호" readonly>
-                    <input type="text" class="monster-text" value="가나다라마바사" readonly>
-                </div>
-            </div>
-            <!-- 캐릭터 설명 끝 -->
-            <!-- 캐릭터 이미지 시작 -->
-            <div class="d-flex justify-content-between margin-top">
-                <div class="img-user-position" id="user-image">
-                    <img src="img/user.png" class="img-size">
-                </div>
-                <div class="img-monster-position" id="monster-image">
-                    <img src="img/monster.png" class="img-size">
-                </div>
-            </div>
-            <!-- 캐릭터 이미지 끝 -->
-        </div>
-        <!-- top 끝 -->
+            <!-- top 끝 -->
 
-        <!-- bottom 시작 -->
-        <div class="d-flex box-bottm bg-info">
-            <!-- 전투 설명 시작 -->
-            <div class="box-text">
-                <textarea class="fullsize" id="textbox" cols="30" readonly></textarea>
+            <!-- bottom 시작 -->
+            <div class="d-flex box-bottm">
+                <!-- 전투 설명 시작 -->
+                <div class="box-text">
+                    <textarea class="full text-font" id="textbox" cols="30" readonly></textarea>
+                </div>
+                <!-- 전투 설명 끝 -->
+                <!-- 버튼 시작 -->
+                <div class="d-flex flex-wrap align-content-center justify-content-center box-text">
+                    <div class="box-button">
+                        <button type="button" class="btn btn-secondary full text-font" id="btn-attack">공격 (평타)</button>
+                    </div>
+                    <div class="box-button">
+                        <button type="button" class="btn btn-secondary full text-font" id="btn-skil">스킬(hp소모)</button>
+                    </div>
+                    <div class="box-button">
+                        <button type="button" class="btn btn-secondary full text-font">땡땡이 (도망)</button>
+                    </div>
+                </div>
+                <!-- 버튼 끝 -->
             </div>
-            <!-- 전투 설명 끝 -->
-            <!-- 버튼 시작 -->
-            <div class="d-flex flex-wrap align-content-center justify-content-center box-text">
-                <div class="box-button">
-                    <button type="button" class="btn btn-primary fullsize" id="btn-attack">공격 (평타)</button>
-                </div>
-                <div class="box-button">
-                    <button type="button" class="btn btn-primary fullsize" id="btn-skil">스킬(hp소모)</button>
-                </div>
-                <div class="box-button">
-                    <button type="button" class="btn btn-primary fullsize">땡땡이 (도망)</button>
-                </div>
-            </div>
-            <!-- 버튼 끝 -->
+            <!-- bottom 끝 -->
+            <img src="/image/attack.gif" class="img-attack" id="attack-image">
+            <img src="/image/monster-attack.gif" class="img-monster-attack" id="monster-attack-image">
         </div>
-        <!-- bottom 끝 -->
     </div>
     <!-- 전체화면 끝 -->
 
