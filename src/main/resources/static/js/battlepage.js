@@ -5,6 +5,7 @@ let isUserAttack = false; // user가 공격인지 체크
 let isMonsterAttack = false; // monster가 공격인지 체크
 $("#attack-image").hide();
 $("#monster-attack-image").hide();
+$("#skil-image").hide();
 let User = {
     name: $("#user-name").val(),
     power: $("#user-power").val(),
@@ -184,8 +185,14 @@ function attack() { // 몬스터와 캐릭터를 공격시킴
             height: '+=180px',
             right: '-=20%'
         }, 1000, () => {
+            if(isAttack== true){
             $("#attack-image").show();
             $("#attack-image").fadeOut(1000);
+        }
+        if(isSkil== true){
+            $("#skil-image").show();
+            $("#skil-image").fadeOut(1000);
+        }
             isUserAttack = true;
             $("#monster-image").attr('src', '/image/monster-demage.png');
             hpText();

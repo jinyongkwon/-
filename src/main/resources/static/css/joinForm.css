@@ -1,0 +1,48 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: 'nice';
+    src: url('font/HSGyeoulNoonkott2.0-Regular.ttf') format('truetype');
+}
+
+.box-bg {
+    background-image: url("/image/joinBG.png");
+    background-size: 100%;
+    background-position: center;
+    height: 100vh;
+}
+
+.box-form {
+    width: 50%;
+    height: 100%;
+}
+
+.main-font {
+    font-family: 'nice';
+    color: #08ecfc;
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.form-font {
+    font-family: 'nice';
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.error-font {
+    font-family: 'nice';
+    color: red;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.btn-font {
+    font-family: 'nice';
+    color: #06ECfb;
+    font-size: 40px;
+    font-weight: 900;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/store.css">
+</head>
+
+<body>
+
+    <div class="market-outer d-flex justify-content-around align-items-center">
+        <div class="market-left d-flex justify-content-center">
+            <!--랜덤박스 시작-->
+            <div class="market-left-box d-flex flex-column justify-content-center ">
+                <div class="random-title d-flex justify-content-center align-items-center ">
+                    <div class="random-txt"> 무기(뽑아보쉴???)1000코인</div>
+                </div>
+                <div class="random-box  d-flex justify-content-center align-items-center">
+                    <div id="random-img" class="random-img d-flex justify-content-center align-items-center">❓</div>
+                    <div class="full d-flex flex-column align-items-center">
+                        <input type="text" id="timer-text" class="timer-text mt-3 text-center" value="무료 뽑기!!"
+                            readonly></input>
+                        <p id="present-img" class="random-img text-center">🎁</p>
+                    </div>
+                </div>
+            </div>
+            <!--랜덤박스 끝-->
+        </div>
+        <div class="market-right">
+            <!--무기목록 시작-->
+            <h1 class="weapon-title">무기 목록</h1>
+
+            <ul>
+                <li class="weapon-name">꽝</li>
+                <li class="weapon-percent">- 확률: 50%</li>
+                <li class="weapon-name">무기1: html</li>
+                <li class="weapon-percent">-확률:25%</li>
+                <li class="weapon-name">무기2: java</li>
+                <li class="weapon-percent">-확률:15%</li>
+                <li class="weapon-name">무기3: JSP</li>
+                <li class="weapon-percent">-확률:8%</li>
+                <li class="weapon-name">무기4: Spring Boot</li>
+                <li class="weapon-percent">-확률:2%</li>
+
+            </ul>
+            <!--무기목록 끝-->
+        </div>
+
+        <script src="/js/store.js"></script>
+
+
+
+</body>
+
+</html>
