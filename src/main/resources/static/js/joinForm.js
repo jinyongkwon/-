@@ -1,3 +1,5 @@
+let checkPassword = false;
+
 $("#password-error").hide();
 $("#password2").blur(() => {
     let password = $("#password1").val();
@@ -6,5 +8,13 @@ $("#password2").blur(() => {
         $("#password-error").show();
     } else {
         $("#password-error").hide();
+        checkPassword=true;
     }
 });
+
+let check = ()=>{
+    if(checkPassword==true){
+        return true;
+    } else
+    return false;
+}
